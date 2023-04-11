@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_bom_form_view_inherit_extension" model="ir.ui.view">
+        <field name="name">mrp.bom.form.view.inherit.extension</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[1]/field[1]/tree[1]/field[6]" position="after">
+                <field name="last_price"/>
+            </xpath>
+            <xpath expr="//page[1]/field[1]/tree[1]/field[8]" position="after">
+                <field name="check_field" invisible="1" />
+                <field name="price_unit" attrs="{'readonly': [('check_field', '!=', True)]}"/>
+            </xpath>
+            <xpath expr="//field[13]" position="after">
+                <field name="price_subtotal"/>
+            </xpath>
+            <xpath expr="//notebook[1]" position="after">
+                <group>
+                    <group></group>
+                    <group><field name="total_amount"/></group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
