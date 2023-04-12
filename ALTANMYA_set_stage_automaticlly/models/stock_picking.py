@@ -1,7 +1,5 @@
 from odoo import api, fields, models
 
-from server.odoo.tools import float_compare
-
 
 class StockPicking(models.Model):
     _inherit = "stock.picking"
